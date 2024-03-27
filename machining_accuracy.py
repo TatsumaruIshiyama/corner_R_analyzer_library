@@ -160,3 +160,5 @@ def ratio_left_volume(r, data, d_z = 0.01, drop_negative = False):
     df_ratio['ratio_left'] = ratio_left
     df_ratio = df_ratio.drop(index = drop_i)
     return df_ratio
+# %%
+print('hello')
