@@ -23,7 +23,7 @@ def R_mean(data, standard_column, standard_list):
     r_mean = r_mean.reset_index(drop = True)
     return r_mean
 # %%
-def plot_format(ax, xlim, ylim, fontsize = 7.5, flame_width = 1.5, scale_length = 5, pad = [0, 0], grid_width = 0.5, grid_which = 'major', minor_grid_axis = 'both'):
+def plot_format(ax, xlim, ylim, fontsize = 7.5, flame_width = 1.5, scale_length = 5, pad = [0, 0], grid_width = 0.5):
     plt.rcParams['font.size'] = fontsize
     plt.rcParams['font.family'] = 'Times New Roman'
     ax.spines["top"].set_linewidth(flame_width)
@@ -65,9 +65,7 @@ def plot_format(ax, xlim, ylim, fontsize = 7.5, flame_width = 1.5, scale_length 
         )
     ax.set_xlim(xlim[0], xlim[1])
     ax.set_ylim(ylim[0], ylim[1])
-    ax.grid(color = 'black', linewidth = grid_width, which = 'major')
-    if grid_which == 'both':
-        ax.grid(color = 'black', linewidth = grid_width * 0.6, which = 'minor', axis = minor_grid_axis)
+    ax.grid(color = 'black', linewidth = grid_width)
 # %%
 def plot_R_mean(ax, data, standard, label, size = 5, marker = ['o', 'o', 's', 'D', '^'], color = ['k', 'w', 'k', 'w', 'k']):
     for i in range(len(standard)):
