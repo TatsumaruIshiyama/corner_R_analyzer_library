@@ -15,7 +15,7 @@ def R_mean(data, standard_column, standard_list):
             df_common = df.loc[0, 'R':'z_5']
             df_common = pd.DataFrame(df_common).T
             df_common.loc[:, 'z_1':'z_5'] = df_common.loc[:, 'z_1':'z_5'] * -1
-            r_mean = df.loc[:, 'r_1':'r_5'].mean()
+            r_mean = df.loc[:, 'r_1':'r_5'].mean(skipna = True)
             r_mean = pd.DataFrame(r_mean).T
             r_mean = pd.concat([df_common, r_mean], axis = 1)
             r_means.append(r_mean)
@@ -145,9 +145,18 @@ def ratio_left_volume(r, data, d_z = 0.01, drop_negative = False):
     drop_i = []
     df_ratio = data.copy()
     for i in range(len(data)):
+        id_nan = data.iloc[i].isnull().values
+        id_nan = id_nan[-5:]
+        id_nan = np.where(id_nan)[0]
+        id_loc = np.delete(np.arange(1, 6, 1), id_nan)
+        r_loc = []
+        z_loc = []
+        for id_loc_i in id_loc:
+            r_loc.append(f'r_{id_loc_i}')
+            z_loc.append(f'z_{id_loc_i}')
         ae = data.loc[i, 'ae']
-        r_list = data.loc[i, 'r_1':'r_5'].values
-        z_list = data.loc[i, 'z_1':'z_5'].values
+        r_list = data.loc[i, r_loc].values
+        z_list = data.loc[i, z_loc].values
         z_calc = z_list[-1] - z_list[0]
 
         r_all = f_cross_section(r_list, z_list, delta_z = d_z)

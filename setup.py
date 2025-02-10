@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 setup(
     name = 'corner_R_analyzer',
-    version = '2.0.0',
+    version = '2.1.0',
     install_requires = [
         'numpy',
         'scipy',
         'pandas',
         'matplotlib',
     ],
-    packages = find_packages()
+    packages = ['corner_R_analyzer'],
 )

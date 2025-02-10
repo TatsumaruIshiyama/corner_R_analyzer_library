@@ -2,6 +2,9 @@ setup.py
 corner_R_analyzer/__init__.py
 corner_R_analyzer/calcurate.py
 corner_R_analyzer/machining_accuracy.py
+corner_R_analyzer/machining_accuracy_2025.py
+corner_R_analyzer/simulator.py
+corner_R_analyzer/wave_extractor_NR500.py
 corner_R_analyzer.egg-info/PKG-INFO
 corner_R_analyzer.egg-info/SOURCES.txt
 corner_R_analyzer.egg-info/dependency_links.txt

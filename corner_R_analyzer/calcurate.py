@@ -662,7 +662,7 @@ def cut_depth(R, D, theta, z_lim = 10, ae_lim = 1, check = False, type = 'nomal'
     ans = ans.set_index('z')
     return ans
 # %%
-def work_plot(ax, n, R, D, z, ap, ae, Vc, fz, work_a, work_b, path_a, N, T, i_b_0):
+def work_plot(ax, n, R, D, z, ap, ae, Vc, fz, work_a, work_b, path_a, N, T_anime, i_b_0):
     r = D / 2
     N_omis = int(N / 100)
     N_omis = np.arange(0, (3 * N) - 1, N_omis, dtype = 'int')
@@ -675,7 +675,7 @@ def work_plot(ax, n, R, D, z, ap, ae, Vc, fz, work_a, work_b, path_a, N, T, i_b_
     ax.text(0.5, 0.12, f'R:{R} mm, Ap:{ap} mm, Ae:{ae} mm', ha='center', transform=ax.transAxes, fontsize = 8)
     ax.text(0.5, 0.06, f'D:{D} mm, z:{z}', ha='center', transform=ax.transAxes, fontsize = 8)
     ax.text(0.5, 0, f'Vc:{Vc} m/min, fz:{fz} mm/tooth', ha='center', transform=ax.transAxes, fontsize = 8)
-    ax.text(0.5, 1.1, f'Time:{T[n]} s', ha='center', transform=ax.transAxes, fontsize = 10)
+    ax.text(0.5, 1.1, 'Time:'+ str(T_anime[n]) + ' s', ha='center', transform=ax.transAxes, fontsize = 10)
     ax.vlines(
         x = 0,
         ymin = - R * 0.2,
