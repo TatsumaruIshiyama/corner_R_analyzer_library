@@ -76,7 +76,7 @@ def plot_r_mean(ax, data, z_mes, label = None, size = 5, marker = 'o', markercol
         linewidth = 0,
         label = label
         )
-def r_mean(R, condition, nf, xlim, ylim, save = True, cd = r'C:/Users/tatsu/マイドライブ/laboratory/corner_R/analyze_2025/'):
+def r_mean(R, condition, nf, xlim, ylim, save = True, cd = r'C:/Users/tatsu/マイドライブ/laboratory/corner_R/analyze_2025/', costum_name = None):
     nf_str = str(nf)
     if len(nf_str) == 1:
         nf_str = '0' + nf_str
@@ -114,8 +114,11 @@ def r_mean(R, condition, nf, xlim, ylim, save = True, cd = r'C:/Users/tatsu/マ�
         plot_r_mean(ax, r.iloc[i].values, z_mes, size = 7)
         plot_format(ax, xlim = xlim, ylim = ylim, pad = (6, 3))
         if save:
-            plt.savefig(save_dir + f'/dataplot_n{i + 1}.png', dpi = 400)
-            print(f'{i + 1}/{n_exp + 1} DataPlot saved' )
+            if costum_name:
+                plt.savefig(save_dir + f'/{costum_name}_n{i + 1}.png', dpi = 400)
+            else:
+                plt.savefig(save_dir + f'/dataplot_n{i + 1}.png', dpi = 400)
+            print(f'{i + 1}/{n_exp} DataPlot saved' )
         plt.clf()
         plt.close()
 
@@ -123,7 +126,10 @@ def r_mean(R, condition, nf, xlim, ylim, save = True, cd = r'C:/Users/tatsu/マ�
     plot_r_mean(ax, r_mean.values, z_mes, size = 7)
     plot_format(ax, xlim = xlim, ylim = ylim, pad = (6, 3))
     if save:
-        plt.savefig(save_dir + f'/meanplot.png', dpi = 400)
+        if costum_name:
+            plt.savefig(save_dir + f'/{costum_name}_mean.png', dpi = 400)
+        else:
+            plt.savefig(save_dir + f'/meanplot.png', dpi = 400)
         print('MeanPlot saved')
     plt.clf()
     plt.close()    
