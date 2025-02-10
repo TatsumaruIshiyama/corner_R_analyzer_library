@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: corner_R_analyzer
-Version: 2.1.0
-Requires-Dist: numpy
-Requires-Dist: scipy
-Requires-Dist: pandas
-Requires-Dist: matplotlib
