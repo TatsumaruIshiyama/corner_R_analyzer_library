@@ -5,7 +5,6 @@ import glob
 import pandas as pd
 from matplotlib import pyplot as plt
 import os
-# %%
 def plot_format(ax, xlim, ylim, fontsize = 15, flame_width = 1.5, scale_length = 5, pad = (0, 0), grid_width = 0.5, grid_which = 'major', minor_grid_axis = 'both'):
     plt.rcParams['font.size'] = fontsize
     plt.rcParams['font.family'] = 'Times New Roman'
@@ -51,7 +50,6 @@ def plot_format(ax, xlim, ylim, fontsize = 15, flame_width = 1.5, scale_length =
     ax.grid(color = 'black', linewidth = grid_width, which = 'major')
     if grid_which == 'both':
         ax.grid(color = 'black', linewidth = grid_width * 0.6, which = 'minor', axis = minor_grid_axis)
-# %%
 def plot_r_mean(ax, data, z_mes, label = None, size = 5, marker = 'o', markercolor = 'k'):
     ax.invert_yaxis()
     ax.plot(
